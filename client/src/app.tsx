@@ -39,12 +39,19 @@ function savePassword(password: string): void {
     window.localStorage.setItem(passwordKey, password);
 }
 
+enum PasswordState {
+    Unchanged,
+    Untested,
+    Success,
+    Fail,
+}
+
 function App() {
     const [config, setConfig] = useState<GlobalConfig | false>();
     const [isPlaying, setIsPlaying] = useState(false);
     const [soundScene, setSoundScene] = useState<SoundScene>();
     const [log, setLog] = useState<string[]>([]);
-    const [password, setPassword] = useState<[string, boolean]>([loadPassword(), false]);
+    const [password, setPassword] = useState<[string, PasswordState]>([loadPassword(), PasswordState.Unchanged]);
 
     const loopTime = 5000; // 5 seconds request and play loop
 
@@ -65,14 +72,16 @@ function App() {
 
     useEffect(() => {
         const testPassword = async () => {
-            if (password[1]) return;
+            if (password[1] === PasswordState.Success || password[1] === PasswordState.Fail) return;
             if (config === undefined || config === false) return;
 
             const data = await fetchStats(config.server, password[0]);
-            if (data === undefined) return;
+            const success = data !== undefined;
 
-            setPassword([password[0], true]);
-            savePassword(password[0]);
+            setPassword([password[0], success ? PasswordState.Success : PasswordState.Fail]);
+            if (success) {
+                savePassword(password[0]);
+            }
         };
         testPassword();
     }, [config, password]);
@@ -86,7 +95,7 @@ function App() {
     }, [soundScene]);
 
     useEffect(() => {
-        if (config === undefined || config === false || !password[1]) return;
+        if (config === undefined || config === false || password[1] !== PasswordState.Success) return;
 
         let lastLog: string[] = [];
         const logger: Logger = {
@@ -118,7 +127,7 @@ function App() {
     }, [config, password]);
 
     const setPasswordToTry = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setPassword([e.target.value, false]);
+        setPassword([e.target.value, PasswordState.Untested]);
     }, []);
 
     const onPause = useCallback(() => {
@@ -167,7 +176,7 @@ function App() {
                     </div>
 
                     <div className="middle">
-                        {!password[1] && (
+                        {(password[1] === PasswordState.Untested || password[1] === PasswordState.Fail) && (
                             <div>
                                 Password
                                 <input onChange={setPasswordToTry} value={password[0]} />
