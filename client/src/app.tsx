@@ -121,12 +121,6 @@ function App() {
         const sounds = new SoundScene(loopTime, data, logger, config);
         setSoundScene(sounds);
 
-        setTimeout(async () => {
-            await Tone.start();
-            sounds.startLoop();
-            setIsPlaying(true);
-        }, 0);
-
         return () => {
             data.stopRequestLoop();
         };
