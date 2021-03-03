@@ -48,13 +48,13 @@ export class SoundScene {
         const defaultOnModules = [
             new ArpeggiatorModule(-20),
             new EventMelodyModule(0, config, this.logger),
-            new ErrorGlitchModule(0, config),
+            new ErrorGlitchModule(-5, config),
             new LooperModule(0, config),
             new EventOneShotModule(0, config, this.logger),
         ];
         const defaultOffModules = [
-            new ChordSampleBackgroundModule(0, config),
-            new ChordSynthBackgroundModule(0),
+            new ChordSampleBackgroundModule(-20, config),
+            new ChordSynthBackgroundModule(-25),
             // new GranularModule(-20, config),
         ];
         for (const m of defaultOffModules) {
