@@ -138,39 +138,39 @@
     },
     "chordSamples": {
         "chordURLs": [
-            "piano-chords/ace.mp3",
-            "piano-chords/ceg.mp3",
-            "piano-chords/dfa.mp3",
-            "piano-chords/fac.mp3",
-            "piano-chords/gbd.mp3"
+            "samples/piano-chords/ace.mp3",
+            "samples/piano-chords/ceg.mp3",
+            "samples/piano-chords/dfa.mp3",
+            "samples/piano-chords/fac.mp3",
+            "samples/piano-chords/gbd.mp3"
         ]
     },
     "errorDrums": {
         "drumURLs": {
-            "kick": "drums/kick.mp3",
-            "snare": "drums/snare.mp3",
-            "hihat": "drums/hihat.mp3",
-            "tom": "drums/tom.mp3"
+            "kick": "samples/drums/kick2.mp3",
+            "snare": "samples/drums/snare2.mp3",
+            "hihat": "samples/drums/hihat2.mp3",
+            "tom": "samples/drums/tom2.mp3"
         }
     },
     "eventSamples": {
         "samples": {
-            "createAppFromTemplate": ["sfx/lip.mp3", 0.014],
-            "generatePublishedAppDataFromSheet": ["sfx/chime.mp3", 0],
-            "deleteApp": ["sfx/zap.mp3", 0],
-            "inAppPurchase": ["sfx/coin.mp3", 0.096],
-            "triggerAppWebhookAction": ["sfx/knife.mp3", 0.57],
-            "triggerZap": ["sfx/laser.mp3", 0.017],
-            "reportApp": ["sfx/pipes.mp3", 0],
-            "sendShareSMS": ["sfx/drip.mp3", 0.065],
-            "exportAppData": ["sfx/splash.mp3", 0]
+            "createAppFromTemplate": ["samples/sfx/glass.mp3", 0.014],
+            "generatePublishedAppDataFromSheet": ["samples/sfx/chime.mp3", 0],
+            "deleteApp": ["samples/sfx/sub.mp3", 0],
+            "inAppPurchase": ["samples/sfx/coin.mp3", 0.096],
+            "triggerAppWebhookAction": ["samples/sfx/pop.mp3", 0.57],
+            "triggerZap": ["samples/sfx/sub.mp3", 0.017],
+            "reportApp": ["samples/sfx/pipes.mp3", 0],
+            "sendShareSMS": ["samples/sfx/drip.mp3", 0.065],
+            "exportAppData": ["samples/sfx/splash.mp3", 0]
         }
     },
     "granular": {
-        "url": "ambient/Thunderstorm.mp3"
+        "url": "samples/ambient/Thunderstorm.mp3"
     },
     "looperDrone": {
-        "url": "jack/drone-loop.wav"
+        "url": "samples/jack/drone-loop.wav"
     },
     "counts": {
         "expectedSuccesses": {

@@ -39,33 +39,33 @@
     },
     "chordSamples": {
         "chordURLs": [
-            "piano-chords/ace.mp3",
-            "piano-chords/ceg.mp3",
-            "piano-chords/dfa.mp3",
-            "piano-chords/fac.mp3",
-            "piano-chords/gbd.mp3"
+            "samples/piano-chords/ace.mp3",
+            "samples/piano-chords/ceg.mp3",
+            "samples/piano-chords/dfa.mp3",
+            "samples/piano-chords/fac.mp3",
+            "samples/piano-chords/gbd.mp3"
         ]
     },
     "errorDrums": {
         "drumURLs": {
-            "kick": "drums/kick.mp3",
-            "snare": "drums/snare.mp3",
-            "hihat": "drums/hihat.mp3",
-            "tom": "drums/tom.mp3"
+            "kick": "samples/drums/kick.mp3",
+            "snare": "samples/drums/snare.mp3",
+            "hihat": "samples/drums/hihat.mp3",
+            "tom": "samples/drums/tom.mp3"
         }
     },
     "eventSamples": {
         "samples": {
-            "adjustObnix": ["sfx/chime.mp3", 0],
-            "releaseFadoodle": ["sfx/pipes.mp3", 0],
-            "mollifyRannygazoo": ["sfx/coin.mp3", 0.096]
+            "adjustObnix": ["samples/sfx/chime.mp3", 0],
+            "releaseFadoodle": ["samples/sfx/pipes.mp3", 0],
+            "mollifyRannygazoo": ["samples/sfx/coin.mp3", 0.096]
         }
     },
     "granular": {
-        "url": "ambient/Thunderstorm.mp3"
+        "url": "samples/ambient/Thunderstorm.mp3"
     },
     "looperDrone": {
-        "url": "jack/drone-loop.wav"
+        "url": "samples/jack/drone-loop.wav"
     },
     "counts": {
         "expectedSuccesses": {

@@ -4,8 +4,6 @@ import { GlobalConfig } from "./config";
 import { ArpeggiatorModule } from "./modules/arpeggiator";
 import { ChordSampleBackgroundModule } from "./modules/chord-sampler";
 import { ChordSynthBackgroundModule } from "./modules/chord-synth";
-// import { ChordSampleBackgroundModule } from "./modules/chord-sampler";
-// import { ChordSynthBackgroundModule } from "./modules/chord-synth";
 import { ErrorGlitchModule } from "./modules/error-glitch";
 import { EventMelodyModule } from "./modules/event-melody";
 import { EventOneShotModule } from "./modules/event-one-shot";
@@ -48,15 +46,15 @@ export class SoundScene {
         Tone.Transport.bpm.value = 48;
 
         const defaultOnModules = [
-            new ArpeggiatorModule(-30),
-            new EventMelodyModule(-10, config, this.logger),
-            new ErrorGlitchModule(-20, config),
-            new LooperModule(-16, config),
-            new EventOneShotModule(-10, config, this.logger),
+            new ArpeggiatorModule(-20),
+            new EventMelodyModule(0, config, this.logger),
+            new ErrorGlitchModule(-5, config),
+            new LooperModule(0, config),
+            new EventOneShotModule(0, config, this.logger),
         ];
         const defaultOffModules = [
-            new ChordSampleBackgroundModule(-25, config),
-            new ChordSynthBackgroundModule(-20),
+            new ChordSampleBackgroundModule(-20, config),
+            new ChordSynthBackgroundModule(-25),
             // new GranularModule(-20, config),
         ];
         for (const m of defaultOffModules) {

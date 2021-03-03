@@ -58,7 +58,7 @@ export class ErrorGlitchModule implements Module {
         this.errorBase = globalConfig.errorBase;
 
         this.meter = new Tone.Meter();
-        this.reverb = new Tone.Reverb({ decay: 1.0, wet: 0.3 });
+        this.reverb = new Tone.Reverb({ decay: 2.0, wet: 0.3 });
         this.volume = new Tone.Volume(volume).connect(this.meter);
 
         this.kickPanner = new Tone.AutoPanner({
