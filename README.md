@@ -81,6 +81,35 @@ A good introductory module is [ChordSampleBackgroundModule](client/src/modules/c
 -   [ChordSynthBackgroundModule](client/src/modules/chord-synth.ts) plays a random synthesized chord at the start of every loop. Default off.
 -   [GranularModule](client/src/modules/granular.ts) is an experimental granular synthesizer. Default off.
 
+Currenly there are 2 main types of audio sources for modules
+
+- Synth audio sources. A synth based audio source generates audio in the browser and uses a sound generator such as (but not limited to) a sine or triangle wave. One example is the [ArpeggiatorModule](client/src/modules/arpeggiator.ts). This type of synth will give you more granular control when mapping data to the properties that make up the sound itself.
+
+- Sample audio sources. A sample based audio source is one that you record and must be prebundled and loaded by your module. One example of this is the [LooperModule](client/src/modules/looper.ts). A typical use case is to trigger a sound in response to an event.
+
+You are not limited to these approaches as long as you adhere to the module interface below as well as the frontend/server protocol for supplying data to your module.
+
+```TypeScript
+export interface Module {
+    /**
+     * The display name of this module.
+     */
+    readonly name: string;
+    /**
+     * The module's meter.  This is used to display a live
+     * meter in the UI.
+     */
+    readonly meter: Tone.Meter;
+
+    play(snapshot: StatSnapshot, time: number, settings: PlaySettings): void;
+    stop?(): void;
+
+    isMuted(): boolean;
+    mute(): void;
+    unMute(): void;
+}
+```
+
 ### Frontend/server protocol
 
 The protocol is very simple: the frontend POSTs a request to the configured URL and gets JSON back. You can optionally use [Basic HTTP password authentication](https://en.wikipedia.org/wiki/Basic_access_authentication), in which case the frontend will ask the user for a password.
