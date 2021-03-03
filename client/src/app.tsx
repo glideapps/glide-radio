@@ -202,8 +202,8 @@ function App() {
 
                     <div className="bottom">
                         <div className="controls">
-                            {soundScene?.modules.map(m => (
-                                <ModuleRenderer module={m} />
+                            {soundScene?.modules.map((m, i) => (
+                                <ModuleRenderer key={i} module={m} />
                             ))}
                         </div>
                         <div className="log">
