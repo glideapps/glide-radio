@@ -29,8 +29,6 @@ export class SoundScene {
         private readonly logger: Logger,
         private readonly config: GlobalConfig
     ) {
-        console.log(config);
-
         // Scale to seconds
         this.loopLength = loopLength / 1000;
 
@@ -48,15 +46,15 @@ export class SoundScene {
         Tone.Transport.bpm.value = 48;
 
         const defaultOnModules = [
-            new ArpeggiatorModule(-30),
-            new EventMelodyModule(-10, config, this.logger),
-            new ErrorGlitchModule(-20, config),
-            new LooperModule(-16, config),
-            new EventOneShotModule(-10, config, this.logger),
+            new ArpeggiatorModule(-20),
+            new EventMelodyModule(0, config, this.logger),
+            new ErrorGlitchModule(0, config),
+            new LooperModule(0, config),
+            new EventOneShotModule(0, config, this.logger),
         ];
         const defaultOffModules = [
-            new ChordSampleBackgroundModule(-25, config),
-            new ChordSynthBackgroundModule(-20),
+            new ChordSampleBackgroundModule(0, config),
+            new ChordSynthBackgroundModule(0),
             // new GranularModule(-20, config),
         ];
         for (const m of defaultOffModules) {
