@@ -4,8 +4,6 @@ import { GlobalConfig } from "./config";
 import { ArpeggiatorModule } from "./modules/arpeggiator";
 import { ChordSampleBackgroundModule } from "./modules/chord-sampler";
 import { ChordSynthBackgroundModule } from "./modules/chord-synth";
-// import { ChordSampleBackgroundModule } from "./modules/chord-sampler";
-// import { ChordSynthBackgroundModule } from "./modules/chord-synth";
 import { ErrorGlitchModule } from "./modules/error-glitch";
 import { EventMelodyModule } from "./modules/event-melody";
 import { EventOneShotModule } from "./modules/event-one-shot";
@@ -31,6 +29,8 @@ export class SoundScene {
         private readonly logger: Logger,
         private readonly config: GlobalConfig
     ) {
+        console.log(config);
+
         // Scale to seconds
         this.loopLength = loopLength / 1000;
 
