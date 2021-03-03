@@ -15,6 +15,7 @@ export class ChordSampleBackgroundModule extends BaseModule {
     public readonly name = "Chord samples (random)";
 
     private readonly players: readonly Tone.Player[];
+    private numLoaded = 0;
 
     constructor(volume: number, globalConfig: GlobalConfig) {
         super(volume);
@@ -23,16 +24,14 @@ export class ChordSampleBackgroundModule extends BaseModule {
         const config = globalConfig.chordSamples as Config;
 
         // We make a player for each of our configured samples.
-        this.players = config.chordURLs.map((url) => {
-            return new Tone.Player(url).chain(this.volume, Tone.Destination);
+        this.players = config.chordURLs.map(url => {
+            return new Tone.Player({ url, onload: () => this.numLoaded++ }).chain(this.volume, Tone.Destination);
         });
     }
 
-    public play(
-        _snapshot: StatSnapshot,
-        time: number,
-        { playbackRate }: PlaySettings
-    ): void {
+    public play(_snapshot: StatSnapshot, time: number, { playbackRate }: PlaySettings): void {
+        if (this.numLoaded < this.players.length) return;
+
         // We play a random sample at the start of the loop.
         const p = randomItem(this.players);
         // We need to set the playback rate or we'll be out of harmony
