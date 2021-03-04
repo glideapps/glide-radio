@@ -49,7 +49,7 @@ export class SoundScene {
             new ArpeggiatorModule(-20),
             new EventMelodyModule(0, config, this.logger),
             new ErrorGlitchModule(-5, config),
-            new LooperModule(0, config),
+            new LooperModule(-5, config),
             new EventOneShotModule(0, config, this.logger),
         ];
         const defaultOffModules = [
@@ -61,7 +61,7 @@ export class SoundScene {
             m.mute();
         }
         this.modules = [...defaultOnModules, ...defaultOffModules];
-        this.meters = [...this.meters, ...this.modules.map((m) => m.meter)];
+        this.meters = [...this.meters, ...this.modules.map(m => m.meter)];
     }
 
     public startLoop() {
@@ -73,27 +73,14 @@ export class SoundScene {
 
             // FIXME: support scale < 1
             const okScale = Math.max(1, oks / this.config.okBase);
-            const scalePerDimension = Math.min(
-                4,
-                Math.pow(okScale, 1 / numEscalationDimensions)
-            );
+            const scalePerDimension = Math.min(4, Math.pow(okScale, 1 / numEscalationDimensions));
 
-            const numTones = scale(
-                scalePerDimension,
-                { min: 1, max: 4 },
-                { min: 8, max: 32 }
-            );
+            const numTones = scale(scalePerDimension, { min: 1, max: 4 }, { min: 8, max: 32 });
 
             const clipToNearestFour = roundToNearestMultiple(numTones, 4);
             const mainSpacing = this.loopLength / clipToNearestFour;
 
-            const semitoneOffset = Math.round(
-                scale(
-                    scalePerDimension,
-                    { min: 1, max: 4 },
-                    { min: 0, max: 11 }
-                )
-            );
+            const semitoneOffset = Math.round(scale(scalePerDimension, { min: 1, max: 4 }, { min: 0, max: 11 }));
             const playbackRate = Math.pow(2, semitoneOffset / 12);
 
             const time = Tone.now();

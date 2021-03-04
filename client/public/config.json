@@ -156,14 +156,14 @@
     "eventSamples": {
         "samples": {
             "createAppFromTemplate": ["samples/sfx/glass.mp3", 0.014],
-            "generatePublishedAppDataFromSheet": ["samples/sfx/chime.mp3", 0],
+            "generatePublishedAppDataFromSheet": ["samples/sfx/ping.mp3", 0],
             "deleteApp": ["samples/sfx/sub.mp3", 0],
-            "inAppPurchase": ["samples/sfx/coin.mp3", 0.096],
+            "inAppPurchase": ["samples/sfx/zinc.mp3", 0.096],
             "triggerAppWebhookAction": ["samples/sfx/pop.mp3", 0.57],
-            "triggerZap": ["samples/sfx/sub.mp3", 0.017],
+            "triggerZap": ["samples/sfx/zap.mp3", 0.017],
             "reportApp": ["samples/sfx/pipes.mp3", 0],
-            "sendShareSMS": ["samples/sfx/drip.mp3", 0.065],
-            "exportAppData": ["samples/sfx/splash.mp3", 0]
+            "sendShareSMS": ["samples/sfx/dust.mp3", 0.065],
+            "exportAppData": ["samples/sfx/rattle.mp3", 0]
         }
     },
     "granular": {
