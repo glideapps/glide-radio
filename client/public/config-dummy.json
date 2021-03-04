@@ -56,9 +56,9 @@
     },
     "eventSamples": {
         "samples": {
-            "adjustObnix": ["samples/sfx/chime.mp3", 0],
-            "releaseFadoodle": ["samples/sfx/pipes.mp3", 0],
-            "mollifyRannygazoo": ["samples/sfx/coin.mp3", 0.096]
+            "adjustObnix": ["samples/sfx/zap.mp3", 0],
+            "releaseFadoodle": ["samples/sfx/ping.mp3", 0],
+            "mollifyRannygazoo": ["samples/sfx/glass.mp3", 0.096]
         }
     },
     "granular": {
